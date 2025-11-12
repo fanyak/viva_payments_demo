@@ -1,6 +1,7 @@
 #!/bin/bash
 
-#instead of `source .env`` file, we pass the env variables as arguments
+# GITHUB: instead of `source .env`` file, we pass the env variables as arguments
+source .env
 # Environment variables are passed from GitHub Actions workflow
 # VIVA_SMART_CHECKOUT_CLIENT_ID and VIVA_SMART_CHECKOUT_CLIENT_SECRET
 

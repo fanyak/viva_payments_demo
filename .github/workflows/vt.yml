@@ -23,16 +23,11 @@ jobs:
         run: bash viva_payments.sh
 
       # we can upload the vt.txt in this workflow as an artifact
-      # then o deploy a GitHub artifact to the hetzner server we can download it in the deployment workflow
+      # then to deploy a GitHub artifact to the hetzner server we can download it in the deployment workflow
       - name: Upload vt.txt as artifact
         uses: actions/upload-artifact@v4
         with:
           name: viva-token
           path: vt.txt
---- IGNORE ---
-      - name: Download a single artifact
-      uses: actions/download-artifact@v5
-      with:
-        name:  viva-token
           
 

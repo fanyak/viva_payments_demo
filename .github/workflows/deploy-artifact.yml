@@ -17,6 +17,11 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
 
+      # - name: Verify downloaded artifact
+      #   run: |
+      #     ls -la
+      #     cat vt.txt
+
       # - name: Set up SSH key
       #   run: |
       #     env

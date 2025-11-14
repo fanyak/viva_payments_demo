@@ -1,23 +1,23 @@
 name: VT Workflow
-on:  
-  schedule:
-    - cron: '0 * * * *'  # Runs every hour at minute 0 (minute, hour, day of month, month, day of week)  
+on:
+  # schedule:
+  #   - cron: '0 * * * *'  # Runs every hour at minute 0 (minute, hour, day of month, month, day of week)
   workflow_dispatch:
 env:
   VIVA_SMART_CHECKOUT_CLIENT_ID: ${{ secrets.VIVA_SMART_CHECKOUT_CLIENT_ID }}
-  VIVA_SMART_CHECKOUT_CLIENT_SECRET: ${{ secrets.VIVA_SMART_CHECKOUT_CLIENT_SECRET }} 
+  VIVA_SMART_CHECKOUT_CLIENT_SECRET: ${{ secrets.VIVA_SMART_CHECKOUT_CLIENT_SECRET }}
 jobs:
   vt_job:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       # - name: Create .env file
       #   run: |
       #     echo "VIVA_SMART_CHECKOUT_CLIENT_ID=${{ secrets.VIVA_SMART_CHECKOUT_CLIENT_ID }}" >> .env
       #     echo "VIVA_SMART_CHECKOUT_CLIENT_SECRET=${{ secrets.VIVA_SMART_CHECKOUT_CLIENT_SECRET }}" >> .env
-      
+
       # this will create vt.txt during the workflow run
       - name: Run VT Script
         run: bash viva_payments.sh
@@ -29,5 +29,3 @@ jobs:
         with:
           name: viva-token
           path: vt.txt
-          
-

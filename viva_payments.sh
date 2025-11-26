@@ -16,6 +16,9 @@ source .env
 # Step 1. Get access token using client base64 encoded credentials grant for smart checkout
 
 CREDS="$VIVA_SMART_CHECKOUT_CLIENT_ID:$VIVA_SMART_CHECKOUT_CLIENT_SECRET"
+# the quotes around $CREDS are important
+# ensuere that it is treated as a single string
+# because of the colon : - it would be split otherwise
 ENCODED=$(echo -n "$CREDS" | base64)
 # curl -H "Authorization: Basic $ENCODED" https://api.example.com
 # echo -n "$ENCODED" > credentials.txt
